@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -42,7 +44,7 @@ var PaginationBoxView = function (_Component) {
   function PaginationBoxView(props) {
     _classCallCheck(this, PaginationBoxView);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PaginationBoxView).call(this, props));
+    var _this = _possibleConstructorReturn(this, (PaginationBoxView.__proto__ || Object.getPrototypeOf(PaginationBoxView)).call(this, props));
 
     _this.handlePreviousPage = function (evt) {
       evt.preventDefault ? evt.preventDefault() : evt.returnValue = false;
@@ -197,11 +199,12 @@ var PaginationBoxView = function (_Component) {
           { className: previousClasses },
           _react2.default.createElement(
             'a',
-            { onClick: this.handlePreviousPage,
+            _extends({ onClick: this.handlePreviousPage,
               className: this.props.previousLinkClassName,
               href: this.hrefBuilder(this.state.selected - 1),
               tabIndex: '0',
-              onKeyPress: this.handlePreviousPage },
+              onKeyPress: this.handlePreviousPage
+            }, this.props.prevAttributes),
             this.props.previousLabel
           )
         ),
@@ -211,11 +214,12 @@ var PaginationBoxView = function (_Component) {
           { className: nextClasses },
           _react2.default.createElement(
             'a',
-            { onClick: this.handleNextPage,
+            _extends({ onClick: this.handleNextPage,
               className: this.props.nextLinkClassName,
               href: this.hrefBuilder(this.state.selected + 1),
               tabIndex: '0',
-              onKeyPress: this.handleNextPage },
+              onKeyPress: this.handleNextPage
+            }, this.props.nextAttributes),
             this.props.nextLabel
           )
         )

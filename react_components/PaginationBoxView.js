@@ -208,7 +208,8 @@ export default class PaginationBoxView extends Component {
              className={this.props.previousLinkClassName}
              href={this.hrefBuilder(this.state.selected - 1)}
              tabIndex="0"
-             onKeyPress={this.handlePreviousPage}>
+             onKeyPress={this.handlePreviousPage}
+             {...this.props.prevAttributes}>
             {this.props.previousLabel}
           </a>
         </li>
@@ -220,7 +221,8 @@ export default class PaginationBoxView extends Component {
              className={this.props.nextLinkClassName}
              href={this.hrefBuilder(this.state.selected + 1)}
              tabIndex="0"
-             onKeyPress={this.handleNextPage}>
+             onKeyPress={this.handleNextPage}
+             {...this.props.nextAttributes}>
             {this.props.nextLabel}
           </a>
         </li>
