@@ -28,7 +28,9 @@ export default class PaginationBoxView extends Component {
     previousLinkClassName : PropTypes.string,
     nextLinkClassName     : PropTypes.string,
     disabledClassName     : PropTypes.string,
-    breakClassName        : PropTypes.string
+    breakClassName        : PropTypes.string,
+    previousAttributes    : PropTypes.object,
+    nextAttributes        : PropTypes.object,
   };
 
   static defaultProps = {
@@ -219,7 +221,9 @@ export default class PaginationBoxView extends Component {
       previousLinkClassName,
       previousLabel,
       nextLinkClassName,
-      nextLabel
+      nextLabel,
+      prevAttributes,
+      nextAttributes,
     } = this.props;
 
     const { selected } = this.state;
@@ -235,7 +239,9 @@ export default class PaginationBoxView extends Component {
              href={this.hrefBuilder(selected - 1)}
              tabIndex="0"
              role="button"
-             onKeyPress={this.handlePreviousPage}>
+             onKeyPress={this.handlePreviousPage}
+	           {...prevAttributes}
+	        >
             {previousLabel}
           </a>
         </li>
@@ -248,7 +254,9 @@ export default class PaginationBoxView extends Component {
              href={this.hrefBuilder(selected + 1)}
              tabIndex="0"
              role="button"
-             onKeyPress={this.handleNextPage}>
+             onKeyPress={this.handleNextPage}
+	           {...nextAttributes}
+	        >
             {nextLabel}
           </a>
         </li>
